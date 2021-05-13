@@ -1,0 +1,141 @@
+/*=========== CORES =================== */
+:root{
+    --white: #FFF;
+
+  --gray-50: #F7F8FA;
+  --gray-100: #E6E8EB;
+  --gray-200: #AFB2B1;
+  --gray-500: #808080;
+  --gray-800: #494D4B;
+
+  --green-500: #04D361;
+  
+  --purple-300: #9F75FF;
+  --purple-400: #9164FA; 
+  --purple-500: #8257E5;
+  --purple-800: #6F48C9;
+
+  --ciano-300: #75fff1;
+  --ciano-400: #66faeb; 
+  --ciano-500: #57e5d7;
+  --ciano-800: #4ac9bc;
+  --ciano-900: #3fa298;
+
+  --red-50 : #CD5C5C;
+}
+
+
+body, ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    color: black;
+    font-family: 'Recursive' ,sans-serif;
+    text-decoration: none;
+
+}
+
+a:hover{
+    background: rgba(0,0,0, .08);
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight:bold;
+}
+
+#header{
+    display: flex;
+    box-sizing: border-box;
+    height: 70px;
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--ciano-500);
+
+}
+
+#menu {
+   
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+    
+}
+
+#menu a {
+    display: block;
+    padding: .5rem;
+}
+
+#buttonMobile {
+    display: none;
+}
+
+@media (max-width: 600px){
+
+    #menu{
+        display: block;
+        position: absolute;
+        width:100%;
+        top: 70px;
+        right: 0px;
+        height: 0px;
+        transition:.6s;
+        background:var(--gray-100);
+        z-index: 1000;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    #nav.active #menu{
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+
+    }
+    #menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0,0,0, .05)
+    }
+    #buttonMobile {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+    #hmb {
+        display: block;
+        border-top: 2px solid;
+        width:20px;
+    }
+    #hmb::after, #hmb::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+
+    #nav.active #hmb{
+        border-top-color: transparent;
+    }
+    #nav.active #hmb::before{
+        transform: rotate(135deg);
+    }
+    #nav.active #hmb::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+    
+}
+
+
